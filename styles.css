@@ -21,29 +21,33 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 10vh auto;
+  max-width: 450px;
+  gap: 25px;
+  padding: 10px;
 }
 
 h1 {
+  text-align: center;
   color: var(--primary-color);
   font-size: 3rem;
 }
 
 .search-container {
-  width: max-content;
-  margin-top: 5%;
   display: flex;
+  width: 100%;
 }
 
 #ipt-cep,
-button {
+button,
+.info-container input {
   font-size: 1.1rem;
-  background: none;
   outline: none;
   border: none;
 }
 
 #ipt-cep {
-  background-color: #fff;
+  width: 100%;
   border-radius: 8px 0 0 8px;
   text-align: center;
 }
@@ -61,4 +65,27 @@ button:hover {
   background-color: var(--primary-color-darker);
 }
 
-/* info container */
+.info-container input {
+  font-size: 1rem;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  width: 100%;
+  border-radius: 2.5px;
+  background-color: #ececec;
+  border-right: 10px solid var(--primary-color);
+}
+
+.error-modal {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background-color: #d1382a;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  transition: 0.25s;
+}
+
+.error-modal.hidden {
+  opacity: 0;
+}

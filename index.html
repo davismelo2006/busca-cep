@@ -7,6 +7,7 @@
     <title>Busca Endereço</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <main>
       <h1>Buscar endereço</h1>
@@ -21,18 +22,16 @@
         <button>Buscar</button>
       </div>
       <div class="info-container">
-        <input type="text" name="" id="" /><input
-          type="text"
-          name=""
-          id=""
-        /><input type="text" name="" id="" /><input
-          type="text"
-          name=""
-          id=""
-        /><input type="text" name="" id="" />
+        <input type="text" placeholder="Rua" readonly />
+        <input type="text" placeholder="Bairro" readonly />
+        <input type="text" placeholder="Cidade" readonly />
+        <input type="text" placeholder="UF" readonly />
+        <input type="text" placeholder="DDD" readonly />
       </div>
     </main>
-
+    <div class="error-modal hidden">
+      <p>Escreva um CEP válido!</p>
+    </div>
     <script src="./app.js"></script>
   </body>
 </html>
