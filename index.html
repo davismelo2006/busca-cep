@@ -16,18 +16,22 @@
           type="text"
           name="ipt-cep"
           id="ipt-cep"
-          maxlength="8"
+          maxlength="9"
           placeholder="Digite o CEP aqui"
         />
-        <button>Buscar</button>
+        <button id="btn-submit">Buscar</button>
       </div>
       <div class="info-container">
-        <input type="text" placeholder="Rua" readonly />
-        <input type="text" placeholder="Bairro" readonly />
-        <input type="text" placeholder="Cidade" readonly />
-        <input type="text" placeholder="UF" readonly />
-        <input type="text" placeholder="DDD" readonly />
+        <label for="Rua">Rua</label>
+        <input type="text" id="Rua" name="Rua" readonly />
+        <label for="Bairro">Bairro</label>
+        <input type="text" id="Bairro" name="Bairro" readonly />
+        <label for="Localidade">Localidade/UF</label>
+        <input type="text" id="Localidade" name="Localidade" readonly />
+        <label for="DDD">DDD</label>
+        <input type="text" id="DDD" name="rua" readonly />
       </div>
+      <button id="btn-print">Imprimir</button>
     </main>
     <div class="error-modal hidden">
       <p>Escreva um CEP válido!</p>

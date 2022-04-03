@@ -1,6 +1,7 @@
 const iptCep = document.querySelector("#ipt-cep");
-const btnSearch = document.querySelector("button");
-const fields = document.querySelector(".info-container");
+const btnSearch = document.querySelector("#btn-submit");
+const btnPrint = document.querySelector("#btn-print");
+const fields = document.querySelectorAll(".info-container input[type='text']");
 const errorModal = document.querySelector(".error-modal");
 
 const getAdress = (cep) => {
@@ -8,11 +9,11 @@ const getAdress = (cep) => {
     .then((res) => res.json())
     .then((data) => {
       for (const key in data) {
-        if (key === "logradouro") fields.children[0].value = data[key];
-        if (key === "bairro") fields.children[1].value = data[key];
-        if (key === "localidade") fields.children[2].value = data[key];
-        if (key === "uf") fields.children[3].value = data[key];
-        if (key === "ddd") fields.children[4].value = data[key];
+        if (key === "logradouro") fields[0].value = data[key];
+        if (key === "bairro") fields[1].value = data[key];
+        if (key === "localidade") fields[2].value = data[key];
+        if (key === "uf") fields[2].value += "/" + data[key];
+        if (key === "ddd") fields[3].value = data[key];
       }
     })
     .catch((error) => {
@@ -21,12 +22,10 @@ const getAdress = (cep) => {
 };
 
 const errorMessage = () => {
-  if (iptCep.value.length < 8) {
-    errorModal.classList.remove("hidden");
-    setTimeout(() => {
-      errorModal.classList.add("hidden");
-    }, 3500);
-  }
+  if (iptCep.value.length < 8) errorModal.classList.remove("hidden");
+  setTimeout(() => {
+    errorModal.classList.add("hidden");
+  }, 3500);
 };
 
 iptCep.addEventListener("input", () => {
@@ -36,4 +35,8 @@ iptCep.addEventListener("input", () => {
 
 btnSearch.addEventListener("click", () => {
   getAdress(iptCep.value);
+});
+
+btnPrint.addEventListener("click", () => {
+  window.print();
 });
